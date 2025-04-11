@@ -16,8 +16,7 @@ public class AutomationPracticeForm {
         Configuration.browserSize = "3840×2160";
         Configuration.baseUrl = "https://demoqa.com";
         Configuration.pageLoadStrategy = "eager";
-        Configuration.holdBrowserOpen = true;
-        Configuration.timeout = 5000; // default 4000
+        Configuration.holdBrowserOpen = false;
     }
 
     @Test
@@ -26,7 +25,7 @@ public class AutomationPracticeForm {
         $("#firstName").setValue("Алексей");
         $("#lastName").setValue("Иванов");
         $("#userEmail").setValue("alex@ivanov.com");
-        $(byText("Male")).click();
+        $("#genterWrapper").$(byText("Male")).click();
         $("#userNumber").setValue("7987654321");
         $("#dateOfBirthInput").click();
         $(".react-datepicker__month-select").selectOption("January");
@@ -34,7 +33,7 @@ public class AutomationPracticeForm {
         $(".react-datepicker__day--015").click();
         $("#subjectsInput").setValue("Maths").pressEnter();
         $("#hobbiesWrapper").$(byText("Sports")).click();
-        $("#uploadPicture").uploadFile(new File("C:/Users/artem/Pictures/test-image.png"));
+        $("#uploadPicture").uploadFromClasspath("test-image.png");
         $("#currentAddress").setValue("Some street 1");
         $("#state").click();
         $("#stateCity-wrapper").$(byText("NCR")).click();
@@ -42,19 +41,15 @@ public class AutomationPracticeForm {
         $("#stateCity-wrapper").$(byText("Delhi")).click();
         $("#submit").click();
 
-
-        $(".table-responsive").shouldHave(
-                text("Алексей Иванов"),
-                text("alex@ivanov.com"),
-                text("Male"),
-                text("7987654321"),
-                text("15 January,1991"),
-                text("Maths"),
-                text("Sports"),
-                text("test-image.png"),
-                text("Some street 1"),
-                text("NCR Delhi")
-        );
-
+        $(".table-responsive").$(byText("Student Name")).parent().shouldHave(text("Алексей Иванов"));
+        $(".table-responsive").$(byText("Student Email")).parent().shouldHave(text("alex@ivanov.com"));
+        $(".table-responsive").$(byText("Gender")).parent().shouldHave(text("Male"));
+        $(".table-responsive").$(byText("Mobile")).parent().shouldHave(text("7987654321"));
+        $(".table-responsive").$(byText("Date of Birth")).parent().shouldHave(text("15 January,1991"));
+        $(".table-responsive").$(byText("Subjects")).parent().shouldHave(text("Maths"));
+        $(".table-responsive").$(byText("Hobbies")).parent().shouldHave(text("Sports"));
+        $(".table-responsive").$(byText("Picture")).parent().shouldHave(text("test-image.png"));
+        $(".table-responsive").$(byText("Address")).parent().shouldHave(text("Some street 1"));
+        $(".table-responsive").$(byText("State and City")).parent().shouldHave(text("NCR Delhi"));
     }
 }
