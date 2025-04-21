@@ -24,16 +24,10 @@ public class SelenideTwo {
     @Test
     void dragAndDropeTest() {
         open("https://the-internet.herokuapp.com/drag_and_drop");
-        $("#column-a").dragAndDrop(DragAndDropOptions.to("#column-b"));
+        $("#column-a").shouldHave(text("A"));
+        $("#column-b").shouldHave(text("B"));
+        $("#column-b").dragAndDropTo("#column-a");
         $("#column-a header").shouldHave(text("B"));
         $("#column-b header").shouldHave(text("A"));
-        /*
-При использовании предолженной команды: $("#column-a").dragAndDrop($("#column-b")) получаю ошибку.
-Idea предлогает отредактировать добавив DragAndDropOptions.to
-В итоге получаю следующую команду: $("#column-a").dragAndDrop(DragAndDropOptions.to("#column-b"));
- */
     }
 }
-
-
-
