@@ -7,7 +7,7 @@ import pages.RegistrationPage;
 
 import static utils.RandomUtils.*;
 
-public class PracticeFormTestsWithPageObjects {
+public class PracticeFormTestsWithPageObjectsTests {
     RegistrationPage registrationPage = new RegistrationPage();
 
     String firstName = getRandomFirstName();
@@ -66,7 +66,7 @@ public class PracticeFormTestsWithPageObjects {
 
     @Test
 
-    void fillOnlyRequiredFields () {
+    void fillOnlyRequiredFieldsTest () {
 
         registrationPage.openPage()
                 .removeBanners()
@@ -84,7 +84,7 @@ public class PracticeFormTestsWithPageObjects {
 
     @Test
 
-    void submitEmptyForm () {
+    void submitEmptyFormTest () {
 
         registrationPage.openPage()
                 .submitForm()

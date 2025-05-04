@@ -12,7 +12,7 @@ public class RegistrationPage {
     CalendarComponent calendarComponent = new CalendarComponent();
     ResultsTableComponent resultsTableComponent = new ResultsTableComponent();
 
-    private SelenideElement firstNameInput = $("#firstName"),
+    private final SelenideElement firstNameInput = $("#firstName"),
 
     lastNameInput = $("#lastName"),
             userEmailInput = $("#userEmail"),
