@@ -83,7 +83,7 @@ public class RegistrationPage {
     }
 
     public RegistrationPage uploadPicture() {
-        uploadPicture.uploadFromClasspath("mem-kot.jpg");
+        uploadPicture.uploadFromClasspath("img.png");
         return this;
     }
 

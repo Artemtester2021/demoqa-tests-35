@@ -59,7 +59,7 @@ public class PracticeFormTestsWithPageObjectsTests {
                 .checkResult("Date of Birth", dayOfBirth + " " + monthOfBirth + "," + yearOfBirth)
                 .checkResult("Subjects", userSubject)
                 .checkResult("Hobbies", userHobby)
-                .checkResult("Picture", "mem-kot.jpg")
+                .checkResult("Picture", "img.png")
                 .checkResult("Address", userAddress)
                 .checkResult("State and City", userState + " " + userCity);
     }
