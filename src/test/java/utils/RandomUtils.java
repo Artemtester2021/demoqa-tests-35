@@ -60,7 +60,7 @@ public class RandomUtils {
     public static String getRandomCityByState(String userState) {
         switch (userState) {
             case "NCR":
-                return faker.options().option("Delhi", "Gurgaon", "Noida");
+                return faker.options().option("Delhi", "Noida", "Gurgaon");
             case "Uttar Pradesh":
                 return faker.options().option("Agra", "Lucknow", "Merrut");
             case "Haryana":
